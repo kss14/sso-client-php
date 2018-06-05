@@ -71,7 +71,7 @@ class SSOTokenClient
         $signature = $this->generateSignature($crypto, $signatureParams, $secret);
 
         $oAuthHeader = $this->generateOAuthHeader($oAuthParams, $signature);
-        $result = $this->callSSO($method, $url, $oAuthHeader);
+        $result = $this->callSSO($method, $url, [$oAuthHeader]);
 
         return $this->parseResult($result, $url, $login, $application);
     }
